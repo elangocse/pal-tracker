@@ -29,7 +29,11 @@ public class TimeEntryController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<TimeEntry> read(@PathVariable("id") long id) {
 
+        System.out.println("id in GET" + id);
+
         TimeEntry timeEntry = timeEntryRepository.find(id);
+
+        System.out.println("timeEntry: " + timeEntry);
 
         if(timeEntry == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
